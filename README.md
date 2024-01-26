@@ -6,8 +6,8 @@ Puedes ver la sintáxis básica en:
 
 ## Estructura de carpetas
 ```
-APP/
+app/
     src/
-    Dockerfile
+    dockerfile
 docker-compose.yml
 ```
