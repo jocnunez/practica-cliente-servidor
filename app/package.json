@@ -3,5 +3,11 @@
     "description": "description",
     "version": "1.0.0",
     "main": "src/app.js",
-    "dependencies": {}
+    "scripts": {
+        "start": "node serve"
+    },
+    "dependencies": {
+        "fastify": "4.26.0",
+        "mongoose": "8.1.1"
+    }
 }

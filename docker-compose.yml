@@ -39,7 +39,8 @@ services:
   client:
     build: ./web
     container_name: web
-    ports: 8080:80
+    ports:
+      - 8080:80
 
 
 networks:
