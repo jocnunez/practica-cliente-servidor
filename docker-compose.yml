@@ -1,0 +1,49 @@
+services:
+  # DATABASE: database será el nombre de este servicio.
+  # Servirá para poder hacer referencia a él desde el resto de servicios.
+  database:
+
+    # Este contenedor se creará a partir de la siguiente imagen (de docker hub)
+    image: mongo:7.0.5
+
+    container_name: db
+    environment:
+    # Estas variables de entorno definen al usuario root:
+    # además activan el modo seguro de la MongoDB
+      - MONGO_INITDB_ROOT_USERNAME
+      - MONGO_INITDB_ROOT_PASSWORD
+
+    # Se creará al inicio una base de datos con el nombre de esta variable:
+      - MONGO_INITDB_DATABASE
+    
+    # [TODO: comentar]
+      - MONGO_API_USER
+      - MONGO_API_PWD
+    
+    ports:
+      - 27017:27017
+    volumes:
+      - ./db/init-mongo.sh:/docker-entrypoint-initdb.d/init-mongo.sh
+      - database:/data/db
+    networks:
+      - services
+
+  # SERVER: esta será nuestra API. Aplicación que se ejecutará en el lado del servidor.
+  # Se encargará de comunicarse tanto con el cliente como con la base de datos.
+  server:
+    build: ./app
+    container_name: api
+
+  # CLIENT: esta será nuestra web. Aplicación que se ejecutará en el lado del cliente.
+  # Mostrará al usuario final la aplicación de lista de tareas.
+  client:
+    build: ./web
+    container_name: web
+    ports: 8080:80
+
+
+networks:
+  services:
+
+volumes:
+  database:

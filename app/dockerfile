@@ -1,5 +1,5 @@
 # La imagen base es node en la versión indicada en el tag
-FROM node:20.11.0-alpine3.19
+FROM node:20.11.1-alpine3.19
 RUN mkdir -p /opt/app
 WORKDIR /opt/app
 COPY package.json .
