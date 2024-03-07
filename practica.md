@@ -41,9 +41,9 @@ Características de la MongoDB:
 
 ### :pencil: Ejercicios
 
-- :pencil: Completa los comentarios en los que pone **[TODO: comentario]** (<span style="color:yellow;">4 puntos</span>)
+- :pencil: Completa los comentarios en los que pone **[TODO: comentario]** (<span style="color:yellow;">5 puntos</span>)
 - :pencil: Modifica la aplicación en el lado del servidor para completar la funcionalidad de update. Tanto hacia el cliente como hacia la db (<span style="color:yellow;">3 puntos</span>)
 - :pencil: Modifica la aplicación en el lado del servidor para completar la funcionalidad de delete. Tanto hacia el cliente como hacia la db (<span style="color:yellow;">2 puntos</span>)
-- :pencil: Modifica la web para que haga uso de la API (<span style="color:yellow;">1 punto</span>)
+- :pencil: Haz un video donde se muestre la aplicación funcionando (<span style="color:yellow;">1 punto</span>) y enseña el código explicando por donde va pasando (<span style="color:yellow;">1 punto</span>)
 
 Además de los ejercicios se tendrá en cuenta otros factores, como la limpieza de código, la calidad de la presentación (en cuanto a fluidez, concreción y coherencia con el código) o cualquier extra que se quiera añadir a la práctica  (<span style="color:yellow;">2 puntos</span>)
