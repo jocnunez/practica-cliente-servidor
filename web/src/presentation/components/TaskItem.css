@@ -1,0 +1,14 @@
+.task-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+/* .task-checkbox {
+
+} */
+
+.completed {
+    text-decoration: line-through;
+}

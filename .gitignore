@@ -1,0 +1,21 @@
+# En este fichero pondremos todo lo que no queramos subir a nuestro repositorio
+
+# Este es el ejemplo perfecto de carpeta a ignorar, porque:
+# 1. Podemos regenerarla siempre que queramos haciendo simplemente: npm install
+# 2. Aunque nuestro proyecto tenga pocas dependencias (package.json) estas a su vez
+#    tienen muchas más y así en cadena. Se acaban descargando miles de ficheros
+# 3. Como norma general, lo que deberíamos guardar en github debería ser solo el código
+#    fuente, es decir, esto no es solo para node, muchos lenguajes tienen un comportamiento
+#    parecido, se necesitan instalar cosas, o se generan otras de forma automática del
+#    propio lenguaje
+
+node_modules
+package-lock.json
+
+
+# Aunque en este caso yo lo tenga comentado, y aunque el .env es algo que generamos nosotros
+# (es código fuente) este es otro tipo de ficheros que nunca deberíamos subir a nuestro
+# repositorio público. En este caso el motivo es la seguridad, ya que incluimos información
+# sensible como contraseñas ...
+
+#.env

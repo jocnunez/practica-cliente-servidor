@@ -12,27 +12,38 @@ services:
     # además activan el modo seguro de la MongoDB
       - MONGO_INITDB_ROOT_USERNAME
       - MONGO_INITDB_ROOT_PASSWORD
-
-    # Se creará al inicio una base de datos con el nombre de esta variable:
+    # Esta es la base de datos que usará de inicio Mongo:
+    # Usaremos "admin" porque es la db que guarda los usuarios de Mongo
+    # Así estará ya seleccionada para crear un nuevo usuario la primera vez
       - MONGO_INITDB_DATABASE
     
-    # [TODO: comentar]
+    # TODO: COMENTAR!!! (0,5 puntos)
       - MONGO_API_USER
       - MONGO_API_PWD
+      - MONGO_DB_NAME
     
     ports:
       - 27017:27017
     volumes:
       - ./db/init-mongo.sh:/docker-entrypoint-initdb.d/init-mongo.sh
-      - database:/data/db
-    networks:
-      - services
+      - db-volume:/data/db
+
 
   # SERVER: esta será nuestra API. Aplicación que se ejecutará en el lado del servidor.
   # Se encargará de comunicarse tanto con el cliente como con la base de datos.
   server:
     build: ./app
     container_name: api
+    environment:
+      - MONGO_API_USER
+      - MONGO_API_PWD
+      - MONGO_DB_NAME
+    ports:
+      - 3000:3000
+    # TODO: COMENTAR!!! (0,25 puntos)
+    depends_on:
+      - database
+
 
   # CLIENT: esta será nuestra web. Aplicación que se ejecutará en el lado del cliente.
   # Mostrará al usuario final la aplicación de lista de tareas.
@@ -41,10 +52,9 @@ services:
     container_name: web
     ports:
       - 8080:80
-
-
-networks:
-  services:
+    # TODO: COMENTAR!!! (0,25 puntos)
+    depends_on:
+      - server
 
 volumes:
-  database:
+  db-volume:

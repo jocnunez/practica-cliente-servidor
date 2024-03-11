@@ -1,13 +1,15 @@
 {
     "name": "server",
     "description": "description",
-    "version": "1.0.0",
-    "main": "src/app.js",
+    "version": "0.1.0",
+    "main": "src/server.js",
+    "type": "module",
     "scripts": {
-        "start": "node serve"
+        "start": "node src/server.js"
     },
     "dependencies": {
-        "fastify": "4.26.0",
-        "mongoose": "8.1.1"
+        "dotenv": "16.4.5",
+        "fastify": "4.26.2",
+        "mongoose": "8.2.1"
     }
 }
