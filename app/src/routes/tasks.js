@@ -31,38 +31,6 @@ const taskRoutes = async (server, options) => {
             return reply.status(400).send({ message: "Error creating task" });
         }
     });
-
-    // Update a task by ID
-    server.put("/:id", async (request, reply) => {
-        const { id } = request.params;
-
-        try {
-            const task = await Task.findByIdAndUpdate(id, request.body, {
-                new: true,
-            });
-            if (!task) {
-                return reply.status(404).send({ message: "Task not found" });
-            }
-            return reply.send(task);
-        } catch (err) {
-            return reply.status(500).send({ message: "Error updating task" });
-        }
-    });
-
-    // Delete a task by ID
-    server.delete("/:id", async (request, reply) => {
-        const { id } = request.params;
-
-        try {
-            const task = await Task.findByIdAndDelete(id);
-            if (!task) {
-                return reply.status(404).send({ message: "Task not found" });
-            }
-            return reply.send({ message: "Task deleted" });
-        } catch (err) {
-            return reply.status(500).send({ message: "Error deleting task" });
-        }
-    });
 };
 
 export default taskRoutes;
