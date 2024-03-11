@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+// TODO: COMENTAR!!! (0,5 puntos) por qué formamos esta ruta así??
 const DB_URI = `mongodb://database:27017/${process.env.MONGO_DB_NAME}`;
 
 //Conexión con la base de datos

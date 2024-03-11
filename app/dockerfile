@@ -1,8 +1,15 @@
-# La imagen base es node en la versión indicada en el tag
+# TODO: COMENTAR!!!
+# (0,2 puntos)
 FROM node:20.11.1-alpine3.19
+# (0,2 puntos)
 WORKDIR /app
+# (0,2 puntos)
 COPY package.json ./
+# (0,2 puntos)
 RUN npm install 
+# (0,2 puntos)
 COPY src /app/src
+# (0,3 puntos)
 EXPOSE 3000 
+# (0,2 puntos)
 CMD ["node", "src/server.js"]
